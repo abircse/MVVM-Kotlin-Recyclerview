@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerview)
         mainActivityViewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
-        recyclerView.setLayoutManager(LinearLayoutManager(this))
+        recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
-        mainActivityViewModel.alluserData?.observe(this, Observer<List<User>> { users ->
+        mainActivityViewModel.getalluserData().observe(this, Observer<List<User>> { users ->
                 val adapter = UserAdapter(users)
                 recyclerView.adapter = adapter
                 // get specific data

@@ -8,14 +8,13 @@ import androidx.lifecycle.MutableLiveData
 import com.thisisabir.mvvm_kotlin_sample.model.User
 import com.thisisabir.mvvm_kotlin_sample.repository.MainActivityRepository
 
-class MainActivityViewModel(application: Application) : AndroidViewModel(application)
-{
+class MainActivityViewModel(application: Application) : AndroidViewModel(application) {
 
     // call repository class by object
-    private val repository:MainActivityRepository = MainActivityRepository(application)
+    private val repository: MainActivityRepository = MainActivityRepository(application)
 
     //call repository method call alluserdata
-    val alluserData : LiveData<List<User>> get() {
+    fun getalluserData(): LiveData<List<User>> {
 
         return repository.getUserData()!!
     }
